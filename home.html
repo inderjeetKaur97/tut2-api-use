@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        margin: auto;
+        border: 2px solid red;
+        width: 20%;
+        height: 20%;
+        position: absolute;
+        top: 20%;
+        left: 35%;
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="city">
+            mumbai
+        </div>
+    <div class="date">
+    </div>
+    <div class="time">
+    </div>  
+    <div class="temp">Real time - > {%temp%}&deg; | {%temp-min%}&deg; | {%temp-max%}&deg; 
+    </div>
+</div>
+<script>
+    var weekday = ["Sunday","Monday","Tuesday","Wednesday", "Thursday","Friday","Saturday"]
+    var month =  ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const getCurDay=()=>{
+        let dayno = new Date().getDate()
+        wday = weekday[dayno]
+        monthno = new Date().getMonth()
+        day = new Date().getDate()
+        return(`${day}|${month[monthno]}|${wday}`)
+       
+      
+        // console.log(day+"-"+ month[monthno]+ "-" +wday)
+    }
+    const getCurTime=()=>{
+        hours = new Date().getHours();
+        mins = new Date().getMinutes();
+        time = `${hours}:${mins} PM`
+        return(time)
+    }
+    getCurTime()
+    getCurDay()
+    dateDiv=document.getElementsByClassName("date")
+    timeDiv=document.getElementsByClassName("time")
+    dateDiv[0].innerHTML = getCurDay()
+    timeDiv[0].innerHTML = getCurTime()
+</script>
+</body>
+</html>
